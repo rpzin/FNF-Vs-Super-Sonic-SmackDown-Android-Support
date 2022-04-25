@@ -372,7 +372,7 @@ class Paths
 		if(OpenFlAssets.exists(file)) {
 			if(!currentTrackedSounds.exists(file)) {
 				#if MODS_ALLOWED
-				currentTrackedSounds.set(file, Sound.fromFile(gottenPath));
+				currentTrackedSounds.set(file, Sound.fromFile(file));
 				#else
 				currentTrackedSounds.set(file, OpenFlAssets.getSound(getPath('$path/$key.$SOUND_EXT', SOUND, library)));
 				#end
@@ -380,6 +380,8 @@ class Paths
 			localTrackedAssets.push(key);
 			return currentTrackedSounds.get(file);
 		}
+		trace('oh no its returning null NOOOO');
+		return null;
 	}
 	
 	#if MODS_ALLOWED
